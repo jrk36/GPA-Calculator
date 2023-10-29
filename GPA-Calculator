@@ -1,0 +1,78 @@
+classes = []
+credit = []
+#made to save input values in the while loop for later GPA calculation
+
+while True:
+
+    while True:
+
+        classGrade = input('Course Grade: ')
+        classGrade = classGrade.upper()
+    
+        if classGrade == str('A'):
+            classGradeNumeric = 4
+            break
+            
+        elif classGrade == str('B'):
+            classGradeNumeric = 3
+            break
+            
+        elif classGrade == str('C'):
+            classGradeNumeric = 2
+            break
+            
+        elif classGrade == str('D'):
+            classGradeNumeric = 1
+            break
+            
+        elif classGrade == str('F'):
+            classGradeNumeric = 0
+            break
+
+        else:
+            print('ERROR invalid value')
+
+    classGradeFloat = float(classGradeNumeric)
+        
+    while True:
+        
+        classCredit = input('Course Credits: ')
+
+        if  classCredit.replace('.','',1).isdigit() == True:
+            classCreditFloat = float(classCredit)
+            break
+
+        else:
+            print('ERROR invalid value')
+
+
+    classGpa = classGradeFloat * classCreditFloat
+
+    classes.append(classGpa)
+    credit.append(classCreditFloat)
+
+
+    while True:
+
+        done = input('Are you finished? Please type Y/N: ')
+        done = done.upper()
+
+        if done == str('N'):
+            break
+
+        elif done == str('Y'):
+            break
+
+        else:
+            print('ERROR invalid value')
+            
+
+    if done == str('Y'):
+        break
+
+
+
+totalClassGpa = sum(classes)
+totalClassCredit = sum(credit)
+totalGpa = round((totalClassGpa / totalClassCredit), 3)
+print('Your GPA is ', totalGpa)

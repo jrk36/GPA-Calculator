@@ -1,18 +1,18 @@
-#to save values determined in the while loop for later GPA calculation
+#create arrays to save values determined in the coming while loops for later GPA calculation
 classes = []
 credit = []
 
-#start an outside loop to have the entire input process repeat until the user indicates they are done
+#start initial loop to have the entire input process repeat until the user indicates they are done
 while True:
 
-    #loop for the input of course grade that runs until a valid input value is entered
+    #loop solely for the input of course grade that runs until a valid input value is entered
     while True:
 
         classGrade = input('Course Grade: ')
         #make user input uppercase so the following code will treat lower and uppercase inputs the same
         classGrade = classGrade.upper()
 
-        #convert valid input letter grades into their numeric value
+        #convert valid input letter grades into their numeric value and break back into outer loop
         if classGrade == str('A'):
             classGradeNumeric = 4
             break
@@ -33,25 +33,25 @@ while True:
             classGradeNumeric = 0
             break
 
-        #if valid grade wasn't enter, print ERROR message and allow user to try again
+        #if valid grade wasn't entered, print ERROR message and allow user to try entering a class grade again
         else:
             print('ERROR invalid value')
 
     #convert numeric class grade into a float number
     classGradeFloat = float(classGradeNumeric)
 
-    #loop for the input of course credits that runs until a valid input value is entered
+    #loop solely for the input of course credits that runs until a valid input value is entered
     while True:
         
         classCredit = input('Course Credits: ')
 
         #check if the string is a float number
         if  classCredit.replace('.','',1).isdigit() == True:
-            #if it is, convert string to float number
+            #if it is, convert string to float number and break back into outer loop
             classCreditFloat = float(classCredit)
             break
 
-        #if it isn't, print ERROR message and allow user to try again
+        #if it isn't, print ERROR message and allow user to try entering class credits again
         else:
             print('ERROR invalid value')
 
@@ -62,7 +62,7 @@ while True:
     classes.append(classGpa)
     credit.append(classCreditFloat)
 
-    #loop for the input of whether or not the user wants to continue that runs until a valid input value is entered
+    #loop solely for the input of whether or not the user wants to continue that runs until a valid input value is entered
     while True:
 
         done = input('Are you finished? Please type Y/N: ')
